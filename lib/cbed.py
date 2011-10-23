@@ -1,9 +1,9 @@
 #!/usr/bin/python
-#Last-modified: 22 Aug 2011 01:56:58 PM
+#Last-modified: 23 Oct 2011 04:04:55 PM
 
 """ Module/Scripts Description
 
-Copyright (c) 2008 Yunfei Wang <tszn1984@gmail.com>
+Copyright (c) 2008 Xiaowei Chen <bighanchen2008@gmail.com>
 
 This code is free software; you can redistribute it and/or modify it
 under the terms of the BSD License (see the file COPYING included with
@@ -11,8 +11,10 @@ the distribution).
 
 @status:  experimental
 @version: $Revision$
-@author:  Yunfei Wang
-@contact: tszn1984@gmail.com
+@author:  Xiaowei Chen
+@contact: bighanchen2008@gmail.com
+
+I deeply appreciate nimezhu's kindness!
 """
 
 # ------------------------------------
