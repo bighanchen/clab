@@ -314,3 +314,30 @@ sampleNames(GSE31546_rawdata)=sub("\\.CEL$","",sampleNames(GSE31546_rawdata))
 GSE31546_rawdata_vsn = vsnrma(GSE31546_rawdata)
 GSE31546_rawdata_vsnf = nsFilter(GSE31546_rawdata_vsn, remove.dupEntrez=FALSE,var.filter=FALSE)$eset
 write.exprs(GSE31546_rawdata_vsnf, file="GSE31546_rawdata_vsnf.txt")
+------------------------------------------------------------------------------------------------------
+
+***R plot***
+
+------------------------------------------------------------------------------------------------------
+GSE4573_SLIT2_25=read.csv(file="GSE4573_SLIT2_25.txt",sep="\t")
+GSE4573_ARRB1_50=read.csv(file="GSE4573_ARRB1_50.txt",sep="\t")
+
+library(survival)
+GSE4573_SLIT2_surv <- Surv(GSE4573_SLIT2_25$time, GSE4573_SLIT2_25$Status)
+GSE4573_SLIT2_survKMest <-survfit(GSE4573_SLIT2_surv~Group,data=GSE4573_SLIT2_25)
+GSE4573_ARRB1_surv <- Surv(GSE4573_ARRB1_50$time, GSE4573_ARRB1_50$Status)
+GSE4573_ARRB1_survKMest <-survfit(GSE4573_ARRB1_surv~Group,data=GSE4573_ARRB1_50)
+
+tiff("OSofSLIT2.tif")
+plot (GSE4573_SLIT2_survKMest, lty=c(1,2),col=c("blue","red"),xlab="Survival Time (Months)")
+legend(x=10,y=0.2,legend=c("low expression n=32","high expression n=33"),col=c("blue","red"),lty=c(1,1))
+text(x=10, y=0, "P=0.022", cex=1, adj = 0)
+text(x=90, y=0.9, "OS of SLIT2", font =2, cex=2, adj = 0) 
+dev.off()
+
+tiff("OSofARRB1.tif")
+plot (GSE4573_ARRB1_survKMest, lty=c(1,2),col=c("blue","red"),xlab="Survival Time (Months)")
+legend(x=10,y=0.2,legend=c("low expression n=65","high expression n=65"),col=c("blue","red"),lty=c(1,1))
+text(x=10, y=0, "P=0.055", cex=1, adj = 0)  
+text(x=90, y=0.9, "OS of ARRB1", font =2, cex=2, adj = 0)
+dev.off()
