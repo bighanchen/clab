@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#Last-modified: 15 Feb 2012 02:26:13 PM
+#Last-modified: 16 Feb 2012 02:23:47 PM
 
 """ Module/Script Description
 
@@ -54,22 +54,22 @@ if __name__=="__main__":
             soup=BeautifulSoup.BeautifulSoup(page)
             for j in range(len(soup('td'))):
                 if (j+1)%10==1:
-                    print soup('td')[j].a.string,
+                    print soup('td')[j].a.string+"\t",
                 elif (j+1)%10==2:
-                    print soup('td')[j].a.string,
+                    print soup('td')[j].a.string+"\t",
                 elif (j+1)%10==3:
-                    print soup('td')[j].a.string,
+                    print soup('td')[j].a.string+"\t",
                 elif (j+1)%10==4:
-                    print soup('td')[j].string,
+                    print soup('td')[j].string+"\t",
                 elif (j+1)%10==5:
-                    print soup('td')[j].string,
+                    print soup('td')[j].string+"\t",
                 elif (j+1)%10==6:
-                    print soup('td')[j].string,
+                    print soup('td')[j].string+"\t",
                 elif (j+1)%10==7:
-                    print soup('td')[j].string,
+                    print soup('td')[j].string+"\t",
                 elif (j+1)%10==8:
-                    print soup('td')[j].string,
+                    print soup('td')[j].string+"\t",
                 elif (j+1)%10==9:
-                    print soup('td')[j].string,
+                    print soup('td')[j].string+"\t",
                 elif (j+1)%10==0:
                     print soup('td')[j].string

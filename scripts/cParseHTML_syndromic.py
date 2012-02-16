@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#Last-modified: 15 Feb 2012 02:26:59 PM
+#Last-modified: 15 Feb 2012 10:05:47 PM
 
 """ Module/Script Description
 
@@ -54,18 +54,18 @@ if __name__=="__main__":
             soup=BeautifulSoup.BeautifulSoup(page)
             for j in range(len(soup('td'))):
                 if (j+1)%9==1:
-                    print soup('td')[j].a.string,
+                    print soup('td')[j].a.string+"\t",
                 elif (j+1)%9==2:
-                    print soup('td')[j].a.string,
+                    print soup('td')[j].a.string+"\t",
                 elif (j+1)%9==3:
-                    print soup('td')[j].a.string,
+                    print soup('td')[j].a.string+"\t",
                 elif (j+1)%9==4:
-                    print soup('td')[j].string,
+                    print soup('td')[j].string+"\t",
                 elif (j+1)%9==5:
-                    print soup('td')[j].string,
+                    print soup('td')[j].string+"\t",
                 elif (j+1)%9==6:
-                    print soup('td')[j].string,
+                    print soup('td')[j].string+"\t",
                 elif (j+1)%9==7:
-                    print soup('td')[j].a.string,
+                    print soup('td')[j].a.string+"\t",
                 elif (j+1)%9==0:
                     print soup('td')[j].span.string
