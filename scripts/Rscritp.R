@@ -316,7 +316,7 @@ GSE31546_rawdata_vsnf = nsFilter(GSE31546_rawdata_vsn, remove.dupEntrez=FALSE,va
 write.exprs(GSE31546_rawdata_vsnf, file="GSE31546_rawdata_vsnf.txt")
 ------------------------------------------------------------------------------------------------------
 
-***R plot***
+***R plot-KM-curve***
 
 ------------------------------------------------------------------------------------------------------
 GSE4573_SLIT2_25=read.csv(file="GSE4573_SLIT2_25.txt",sep="\t")

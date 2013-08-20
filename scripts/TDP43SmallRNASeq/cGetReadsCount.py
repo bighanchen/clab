@@ -1,14 +1,14 @@
 #!/usr/bin/python
-#Last-modified: 13 Nov 2012 10:00:56 AM
+#Last-modified: 02 Mar 2012 05:19:54 PM
 
-""" Module/Scripts Description
+""" Module/Script Description
+
+This Module/Script can help to get Reads Count file from Trim-adapter file
 
 Copyright (c) 2008 Xiaowei Chen <bighanchen2008@gmail.com>
-
 This code is free software; you can redistribute it and/or modify it
 under the terms of the BSD License (see the file COPYING included with
 the distribution).
-
 @status:  experimental
 @version: $Revision$
 @author:  Xiaowei Chen
@@ -21,8 +21,8 @@ the distribution).
 
 import sys
 import string
+import re
 #from wbed import ColumnReader
-#import BeautifulSoup
 
 # ------------------------------------
 # constants
@@ -45,18 +45,16 @@ if __name__=="__main__":
         print "Usage: "+sys.argv[0]+" file1 file2..."
     else:
         fh=open(sys.argv[1])
+        line=fh.readline().rstrip("\n\r")
         j=0
-        line=fh.readline()
         while line:
-            line=line.split("\t")
-            item=line[0].split(":")
-            if string.atof(line[2])==100.00 and string.atoi(line[3])==string.atoi(item[1]) and string.atoi(line[6])==1 and string.atoi(line[7])==string.atoi(item[1]):
-                if string.atof(line[8])>string.atof(line[9]):
-                    start=int(line[9])-1
-                    strand="-"
-                    print line[1]+"\t"+str(start)+"\t"+line[8]+"\t"+line[0]+"\t"+str(0)+"\t"+strand
-                else:
-                    start=int(line[8])-1
-                    strand="+"
-                    print line[1]+"\t"+str(start)+"\t"+line[9]+"\t"+line[0]+"\t"+str(0)+"\t"+strand
+            robj=re.compile("^\s+")
+            line=robj.sub("",line)
+            robj=re.compile("\s")
+            line=robj.split(line)
+            if string.atoi(line[0])>2:
+                print ">Read_"+str(j)+":"+str(len(line[1]))+":"+line[0]
+                print line[1]
+                j=j+1
             line=fh.readline().rstrip("\n\r")
+#        for line in ColumnReader(open(sys.argv[1])):
