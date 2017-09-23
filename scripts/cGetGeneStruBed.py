@@ -21,7 +21,6 @@ the distribution).
 
 import sys
 import string
-#from zbed import *
 from wbed import ColumnReader
 
 # ------------------------------------
